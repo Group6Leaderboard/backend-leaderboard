@@ -1,34 +1,34 @@
 package com.leaderboard.demo.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
+import org.apache.catalina.User;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Data
-
-public class Task {
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    private String name;
     private String description;
-    private String status;
-    private String file;
+    private int score;
 
     @ManyToOne
-    @JoinColumn(name = "assigned_by")
-    private User assignedBy;
-
-    @ManyToOne
-    @JoinColumn(name = "assigned_to")
-    private User assignedTo;
+    @JoinColumn(name = "mentor_id")
+    private User mentor;
 
     private boolean isDeleted;
 
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+
+
 
 }
