@@ -16,6 +16,8 @@ public class StudentProject {
     private UUID id;
 
 
+
+
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
     private User student; // Assuming User entity represents students
