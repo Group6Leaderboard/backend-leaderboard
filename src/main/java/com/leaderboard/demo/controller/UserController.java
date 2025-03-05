@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 
 public class UserController {
      private final UserService userService;
@@ -18,10 +18,12 @@ public class UserController {
          this.userService = userService;
      }
 
-     @GetMapping
+    @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){
          return ResponseEntity.ok(userService.getAllUsers());
      }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable UUID id) {
         return ResponseEntity.ok(userService.getUserById(id));
