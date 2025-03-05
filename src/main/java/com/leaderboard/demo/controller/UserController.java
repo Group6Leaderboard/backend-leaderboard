@@ -18,14 +18,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // Get all users (excluding deleted)
+
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    // Get user by ID
+
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable UUID id) {
         Optional<User> user = userService.getUserById(id);
@@ -33,14 +33,14 @@ public class UserController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    // Create or update a user
+
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User savedUser = userService.saveUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
-    // Delete a user (soft delete)
+
     @DeleteMapping("/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable UUID id) {
         User deletedUser = userService.deleteUser(id);

@@ -9,6 +9,6 @@ import java.util.UUID;
 
 @Repository
 public interface StudentProjectRepository extends JpaRepository<StudentProject, UUID> {
-    List<StudentProject> findByStudentId(UUID studentId);  // All projects for a student
-    List<StudentProject> findByProjectId(UUID projectId);  // All students for a project
+    List<StudentProject> findByStudentId(UUID studentId);
+    List<StudentProject> findByProjectId(UUID projectId);
 }

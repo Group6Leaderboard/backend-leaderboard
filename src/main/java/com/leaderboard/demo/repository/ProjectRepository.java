@@ -9,6 +9,6 @@ import java.util.UUID;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, UUID> {
-    List<Project> findByIsDeletedFalse();  // Fetch only active projects
-    List<Project> findByMentorId(UUID mentorId);  // Fetch all projects assigned to a mentor
+    List<Project> findByIsDeletedFalse();
+    List<Project> findByMentorId(UUID mentorId);
 }

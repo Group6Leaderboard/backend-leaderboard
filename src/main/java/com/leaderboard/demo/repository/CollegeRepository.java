@@ -10,5 +10,5 @@ import java.util.UUID;
 
 @Repository
 public interface CollegeRepository extends JpaRepository<College, UUID> {
-    List<College> findByIsDeletedFalse();  // Fetch only active colleges
+    List<College> findByIsDeletedFalse();
 }

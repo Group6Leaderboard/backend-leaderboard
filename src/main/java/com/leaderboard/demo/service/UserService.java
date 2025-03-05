@@ -15,27 +15,27 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    // Create or update a user
+
     public User saveUser(User user) {
         return userRepository.save(user);
     }
 
-    // Find a user by ID
+
     public Optional<User> getUserById(UUID userId) {
         return userRepository.findById(userId);
     }
 
-    // Find users by role
+
     public List<User> getUsersByRole(String roleName) {
         return userRepository.findByRoleName(roleName);
     }
 
-    // Get all users (excluding deleted ones)
+
     public List<User> getAllUsers() {
         return userRepository.findByIsDeletedFalse();
     }
 
-    // Delete a user (soft delete)
+
     public User deleteUser(UUID userId) {
         Optional<User> user = userRepository.findById(userId);
         if (user.isPresent()) {
@@ -46,7 +46,7 @@ public class UserService {
         return null;
     }
 
-    // Find user by email (useful for login)
+
     public Optional<User> getUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }

@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
     List<User> findByIsDeletedFalse();
-    List<User> findByRoleName(String roleName);  // Fetch users based on role (e.g., "MENTOR", "STUDENT")
-    List<User> findByCollegeId(UUID collegeId);  // Fetch all users in a specific college
-    Optional<User> findByEmail(String email);  // Find user by email (useful for login/authentication)
+    List<User> findByRoleName(String roleName);
+    List<User> findByCollegeId(UUID collegeId);
+    Optional<User> findByEmail(String email);
 }
